@@ -1,4 +1,4 @@
-FROM dokken:centos-stream-8
+FROM dokken/centos-stream-8
 
 RUN yum update -y && \
     yum install -y epel-release && \
