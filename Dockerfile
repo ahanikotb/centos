@@ -1,4 +1,4 @@
-FROM centos:centos8
+FROM centos:latest
 
 RUN yum update -y && \
     yum install -y epel-release && \
