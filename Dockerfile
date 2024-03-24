@@ -1,4 +1,9 @@
-FROM dokken/centos-stream-8
+FROM centos:centos8
+
+
+
+RUN  sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN  sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 
 # Install required packages and set locale
 RUN yum update -y && \
