@@ -21,14 +21,13 @@ RUN wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux
     echo "./ngrok config add-authtoken ${ngrokid}" >> /1.sh && \
     echo "./ngrok tcp 22 &>/dev/null &" >> /1.sh && \
     mkdir /run/sshd && \
+    echo '/usr/sbin/sshd -D' >> /1.sh && \
     echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
     echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config && \
     echo root:${Password} | chpasswd && \
-    ssh-keygen -A && \
-    sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-    echo "root:${Password}" | chpasswd && \
-    mkdir -p /var/run/sshd && \
+    systemctl enable sshd && \
     chmod 755 /1.sh
+
     
 EXPOSE 80 8888 8080 443 5130 5131 5132 5133 5134 5135 3306
 CMD /1.sh >> /var/log/ngrok.log 2>&1 && tail -f /var/log/ngrok.log
