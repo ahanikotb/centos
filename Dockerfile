@@ -3,8 +3,8 @@ FROM dokken/centos-stream-8
 RUN yum update -y && \
     yum install -y epel-release && \
     yum install -y  openssh-server wget unzip \
-    yum install -y glibc-locale-source \
-    localedef --no-archive -i en_US -f UTF-8 en_US.UTF-8
+    yum install -y glibc-locale-source 
+RUN localedef --no-archive -i en_US -f UTF-8 en_US.UTF-8
     
 ENV LANG en_US.utf8
 ARG ngrokid
