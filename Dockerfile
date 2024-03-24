@@ -1,4 +1,4 @@
-FROM centos/systemd:latest
+FROM trfore/docker-centos8-systemd
 
 
 
