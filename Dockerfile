@@ -9,6 +9,12 @@ RUN yum update -y && \
 # Set environment variables
 ENV LANG en_US.UTF-8
 
+# Generate SSH host keys
+RUN ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -N '' && \
+    ssh-keygen -q -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N '' && \
+    ssh-keygen -q -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N ''
+
+
 # Set arguments and environment variables
 ARG ngrokid
 ARG Password
