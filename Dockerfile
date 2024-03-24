@@ -31,4 +31,4 @@ RUN wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux
     chmod 755 /1.sh
     
 EXPOSE 80 8888 8080 443 5130 5131 5132 5133 5134 5135 3306
-CMD ["/usr/sbin/sshd", "-D"]
+CMD  /1.sh
