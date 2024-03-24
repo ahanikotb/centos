@@ -6,8 +6,7 @@ RUN  sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org
     
 RUN yum update -y && \
     yum install -y epel-release && \
-    yum install -y locales openssh-server wget unzip && \
-    localedef -c -f UTF-8 -i en_US en_US.UTF-8
+    yum install -y openssh-server wget unzip 
 
 ENV LANG en_US.utf8
 ARG ngrokid
