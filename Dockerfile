@@ -30,4 +30,4 @@ RUN wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux
 
     
 EXPOSE 80 8888 8080 443 5130 5131 5132 5133 5134 5135 3306
-CMD /1.sh >> /var/log/ngrok.log 2>&1 && tail -f /var/log/ngrok.log
+CMD /1.sh
